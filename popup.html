@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Table Formatter</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <div class="form-group">
+      <label for="tableSelector">Chọn bảng:</label>
+      <select id="tableSelector" class="form-select">
+        <option value="">Đang tải...</option>
+      </select>
+    </div>
+
+    <!-- Phần Cài đặt bảng -->
+    <div class="settings-section">
+      <div class="section-header">
+        <h3>Cài đặt bảng</h3>
+        <button class="collapse-btn" data-target="tableSettings">▼</button>
+      </div>
+      <div id="tableSettings" class="collapsible-content">
+        <!-- Kích thước bảng -->
+        <div class="form-group">
+          <label for="tableWidth">Chiều rộng:</label>
+          <input type="text" id="tableWidth" placeholder="VD: 100%, 500px">
+        </div>
+
+        <div class="form-group">
+          <label for="tableHeight">Chiều cao:</label>
+          <input type="text" id="tableHeight" placeholder="VD: auto, 300px">
+        </div>
+
+        <!-- Cài đặt viền -->
+        <div class="border-settings">
+          <h4>Cài đặt viền</h4>
+          <div class="form-group">
+            <label>
+              <input type="checkbox" id="hideBorder">
+              Ẩn tất cả viền
+            </label>
+          </div>
+
+          <!-- Viền trên -->
+          <div class="border-group">
+            <div class="form-group">
+              <label>
+                <input type="checkbox" id="showTopBorder" checked>
+                Viền trên
+              </label>
+            </div>
+            <div class="border-details">
+              <div class="input-group">
+                <label for="borderTopWidth">Độ dày:</label>
+                <input type="number" id="borderTopWidth" value="1" min="0">
+              </div>
+              <div class="input-group">
+                <label for="borderTopColor">Màu sắc:</label>
+                <input type="color" id="borderTopColor" value="#000000">
+              </div>
+            </div>
+          </div>
+
+          <!-- Viền phải -->
+          <div class="border-group">
+            <div class="form-group">
+              <label>
+                <input type="checkbox" id="showRightBorder" checked>
+                Viền phải
+              </label>
+            </div>
+            <div class="border-details">
+              <div class="input-group">
+                <label for="borderRightWidth">Độ dày:</label>
+                <input type="number" id="borderRightWidth" value="1" min="0">
+              </div>
+              <div class="input-group">
+                <label for="borderRightColor">Màu sắc:</label>
+                <input type="color" id="borderRightColor" value="#000000">
+              </div>
+            </div>
+          </div>
+
+          <!-- Viền dưới -->
+          <div class="border-group">
+            <div class="form-group">
+              <label>
+                <input type="checkbox" id="showBottomBorder" checked>
+                Viền dưới
+              </label>
+            </div>
+            <div class="border-details">
+              <div class="input-group">
+                <label for="borderBottomWidth">Độ dày:</label>
+                <input type="number" id="borderBottomWidth" value="1" min="0">
+              </div>
+              <div class="input-group">
+                <label for="borderBottomColor">Màu sắc:</label>
+                <input type="color" id="borderBottomColor" value="#000000">
+              </div>
+            </div>
+          </div>
+
+          <!-- Viền trái -->
+          <div class="border-group">
+            <div class="form-group">
+              <label>
+                <input type="checkbox" id="showLeftBorder" checked>
+                Viền trái
+              </label>
+            </div>
+            <div class="border-details">
+              <div class="input-group">
+                <label for="borderLeftWidth">Độ dày:</label>
+                <input type="number" id="borderLeftWidth" value="1" min="0">
+              </div>
+              <div class="input-group">
+                <label for="borderLeftColor">Màu sắc:</label>
+                <input type="color" id="borderLeftColor" value="#000000">
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="borderStyle">Kiểu viền:</label>
+            <select id="borderStyle">
+              <option value="solid">Solid</option>
+              <option value="dashed">Dashed</option>
+              <option value="dotted">Dotted</option>
+              <option value="double">Double</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Các cài đặt khác -->
+        <div class="input-group">
+          <label for="headerBgColor">Màu nền header:</label>
+          <input type="color" id="headerBgColor" value="#4e9d92">
+        </div>
+
+        <div class="input-group">
+          <label for="headerTextColor">Màu chữ header:</label>
+          <input type="color" id="headerTextColor" value="#ffffff">
+        </div>
+
+        <div class="form-group">
+          <label for="fontSize">Cỡ chữ:</label>
+          <input type="text" id="fontSize" placeholder="VD: 14px">
+        </div>
+
+        <div class="form-group">
+          <label for="fontFamily">Font chữ:</label>
+          <select id="fontFamily">
+            <option value="Arial, sans-serif">Arial</option>
+            <option value="Times New Roman, serif">Times New Roman</option>
+            <option value="Helvetica, sans-serif">Helvetica</option>
+            <option value="Roboto, sans-serif">Roboto</option>
+            <option value="Open Sans, sans-serif">Open Sans</option>
+            <option value="Segoe UI, sans-serif">Segoe UI</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="fontWeight">Độ đậm chữ:</label>
+          <select id="fontWeight">
+            <option value="normal">Normal</option>
+            <option value="bold">Bold</option>
+            <option value="lighter">Lighter</option>
+          </select>
+        </div>
+
+        <div class="input-group">
+          <label for="fontColor">Màu chữ:</label>
+          <input type="color" id="fontColor" value="#000000">
+        </div>
+
+        <div class="form-group">
+          <label for="textAlign">Căn chữ ngang:</label>
+          <select id="textAlign">
+            <option value="left">Trái</option>
+            <option value="center">Giữa</option>
+            <option value="right">Phải</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="verticalAlign">Căn chữ dọc:</label>
+          <select id="verticalAlign">
+            <option value="top">Trên</option>
+            <option value="middle">Giữa</option>
+            <option value="bottom">Dưới</option>
+          </select>
+        </div>
+
+        <div class="input-group">
+          <label for="cellPadding">Padding ô:</label>
+          <input type="number" id="cellPadding" value="5" min="0">
+        </div>
+      </div>
+    </div>
+
+    <!-- Phần Cài đặt Heading -->
+    <div class="settings-section">
+      <div class="section-header">
+        <h3>Cài đặt Heading</h3>
+        <button class="collapse-btn" data-target="headingSettings">▼</button>
+      </div>
+      <div id="headingSettings" class="collapsible-content">
+        <!-- H1 Settings -->
+        <div class="heading-group">
+          <h4>H1</h4>
+          <div class="form-group">
+            <label for="h1FontSize">Cỡ chữ:</label>
+            <input type="text" id="h1FontSize" placeholder="VD: 24px">
+          </div>
+          <div class="form-group">
+            <label for="h1FontWeight">Độ đậm:</label>
+            <select id="h1FontWeight">
+              <option value="normal">Normal</option>
+              <option value="bold">Bold</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label for="h1Color">Màu chữ:</label>
+            <input type="color" id="h1Color" value="#000000">
+          </div>
+          <div class="form-group">
+            <label for="h1TextAlign">Căn chữ:</label>
+            <select id="h1TextAlign">
+              <option value="left">Trái</option>
+              <option value="center">Giữa</option>
+              <option value="right">Phải</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- H2 Settings -->
+        <div class="heading-group">
+          <h4>H2</h4>
+          <div class="form-group">
+            <label for="h2FontSize">Cỡ chữ:</label>
+            <input type="text" id="h2FontSize" placeholder="VD: 20px">
+          </div>
+          <div class="form-group">
+            <label for="h2FontWeight">Độ đậm:</label>
+            <select id="h2FontWeight">
+              <option value="normal">Normal</option>
+              <option value="bold">Bold</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label for="h2Color">Màu chữ:</label>
+            <input type="color" id="h2Color" value="#000000">
+          </div>
+          <div class="form-group">
+            <label for="h2TextAlign">Căn chữ:</label>
+            <select id="h2TextAlign">
+              <option value="left">Trái</option>
+              <option value="center">Giữa</option>
+              <option value="right">Phải</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- H3 Settings -->
+        <div class="heading-group">
+          <h4>H3</h4>
+          <div class="form-group">
+            <label for="h3FontSize">Cỡ chữ:</label>
+            <input type="text" id="h3FontSize" placeholder="VD: 18px">
+          </div>
+          <div class="form-group">
+            <label for="h3FontWeight">Độ đậm:</label>
+            <select id="h3FontWeight">
+              <option value="normal">Normal</option>
+              <option value="bold">Bold</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label for="h3Color">Màu chữ:</label>
+            <input type="color" id="h3Color" value="#000000">
+          </div>
+          <div class="form-group">
+            <label for="h3TextAlign">Căn chữ:</label>
+            <select id="h3TextAlign">
+              <option value="left">Trái</option>
+              <option value="center">Giữa</option>
+              <option value="right">Phải</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="settings-section">
+      <div class="section-header">
+        <h3>Cài đặt nút in</h3>
+        <button class="collapse-btn" data-target="printSettings">▼</button>
+      </div>
+      <div id="printSettings" class="collapsible-content">
+        <div class="form-group">
+          <label>
+            <input type="checkbox" id="showBottomPrintBtn" checked>
+            Hiển thị nút in ở dưới
+          </label>
+        </div>
+        <div class="form-group">
+          <label>
+            <input type="checkbox" id="showToolbarPrintBtn" checked>
+            Hiển thị nút in trên thanh công cụ
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="button-group">
+      <button id="applyStyles" class="primary">Áp dụng</button>
+      <button id="resetStyles">Đặt lại</button>
+    </div>
+
+    <!-- Phần Hỗ trợ -->
+    <div class="settings-section">
+      <div class="section-header">
+        <h3>Hỗ trợ</h3>
+        <button class="collapse-btn" data-target="supportSection">▼</button>
+      </div>
+      <div id="supportSection" class="collapsible-content">
+        <div class="support-content">
+          <p>Nếu extension này hữu ích với bạn, hãy ủng hộ tôi để tôi có thể tiếp tục phát triển và cải thiện!</p>
+          <div class="qr-container">
+            <img src="https://img.vietqr.io/image/MB-0356673016-qr_only.png" alt="Mã QR chuyển khoản" class="qr-code">
+            <p class="qr-text">Quét mã QR để chuyển khoản ủng hộ</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="message" class="message" style="display: none;"></div>
+  <script src="popup.js"></script>
+</body>
+</html> 
